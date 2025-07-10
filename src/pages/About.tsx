@@ -1,21 +1,21 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
-import { useRef } from 'react';
-import { 
-  Heart, 
-  Globe, 
-  Award, 
-  Users, 
-  Target, 
-  Lightbulb, 
-  Zap, 
+import React from "react";
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
+import {
+  Heart,
+  Globe,
+  Award,
+  Users,
+  Target,
+  Lightbulb,
+  Zap,
   Shield,
   Brain,
   Leaf,
   Eye,
-  Sparkles
-} from 'lucide-react';
+  Sparkles,
+} from "lucide-react";
 
 const About = () => {
   const ref = useRef(null);
@@ -27,9 +27,9 @@ const About = () => {
       opacity: 1,
       transition: {
         delayChildren: 0.3,
-        staggerChildren: 0.2
-      }
-    }
+        staggerChildren: 0.2,
+      },
+    },
   };
 
   const itemVariants = {
@@ -39,41 +39,45 @@ const About = () => {
       opacity: 1,
       transition: {
         duration: 0.6,
-        ease: "easeOut"
-      }
-    }
+        ease: "easeOut",
+      },
+    },
   };
 
   const designDomains = [
     {
       icon: Brain,
       title: "Sentient Business & Economic Governance",
-      description: "Design regenerative, circular, AI-integrated business models that incorporate planetary wellbeing and multi-intelligence metrics for future symbiosis."
+      description:
+        "Design regenerative, circular, AI-integrated business models that incorporate planetary wellbeing and multi-intelligence metrics for future symbiosis.",
     },
     {
       icon: Sparkles,
       title: "Sentient Products & Services Design",
-      description: "Develop emotionally intelligent, adaptive, and ecologically entangled products with AI, bio-sensing, and spiritual-aesthetic systems."
+      description:
+        "Develop emotionally intelligent, adaptive, and ecologically entangled products with AI, bio-sensing, and spiritual-aesthetic systems.",
     },
     {
       icon: Zap,
       title: "R&D to MVP Pipeline",
-      description: "Translate foresight insights and speculative design into rapid MVPs. Incubate and spin out ventures driving post-regenerative sentient futures."
+      description:
+        "Translate foresight insights and speculative design into rapid MVPs. Incubate and spin out ventures driving post-regenerative sentient futures.",
     },
     {
       icon: Target,
       title: "Sentient Design Consulting",
-      description: "Advise institutions on transition design, scenario planning, and regenerative innovation strategies to lead the future."
-    }
+      description:
+        "Advise institutions on transition design, scenario planning, and regenerative innovation strategies to lead the future.",
+    },
   ];
 
   const customerSegments = [
     "United Nations agencies & IGOs",
     "Governments & think tanks",
-    "Global cities & municipalities", 
+    "Global cities & municipalities",
     "Corporate institutions & start-ups",
     "Innovation labs & design research institutions",
-    "Impact investors & ethical venture funds"
+    "Impact investors & ethical venture funds",
   ];
 
   const impactMetrics = [
@@ -81,26 +85,26 @@ const About = () => {
       icon: Leaf,
       title: "Regenerative Ventures",
       description: "Number of regenerative/sentient ventures launched",
-      value: "50+"
+      value: "50+",
     },
     {
       icon: Globe,
       title: "Ecosystem Health",
       description: "Ecosystem health metrics embedded in outputs",
-      value: "100%"
+      value: "100%",
     },
     {
       icon: Eye,
       title: "Cultural Reach",
       description: "Global reach via storytelling and exhibitions",
-      value: "25M+"
+      value: "25M+",
     },
     {
       icon: Shield,
       title: "Policy Innovations",
       description: "Policy innovations influenced or adopted",
-      value: "15+"
-    }
+      value: "15+",
+    },
   ];
 
   return (
@@ -133,51 +137,11 @@ const About = () => {
               variants={itemVariants}
               className="text-xl text-neutral-600 max-w-4xl mx-auto leading-relaxed font-african"
             >
-              Leading the world in building sentient ventures, systems, and policies. We translate 
-              speculative foresight and ancestral wisdom into the building blocks of a thriving, 
-              post-regenerative civilization rooted in African innovation.
+              Leading the world in building sentient ventures, systems, and
+              policies. We translate speculative foresight and ancestral wisdom
+              into the building blocks of a thriving, post-regenerative
+              civilization rooted in African innovation.
             </motion.p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Vision & Mission Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
-            className="grid lg:grid-cols-2 gap-16"
-          >
-            {/* Vision */}
-            <motion.div variants={itemVariants} className="text-center lg:text-left">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-tribal-gold/20 text-tribal-gold rounded-african mb-6 animate-drum-beat">
-                <Eye size={32} />
-              </div>
-              <h2 className="text-3xl font-african font-bold text-neutral-900 mb-6">
-                Our Vision
-              </h2>
-              <p className="text-lg text-neutral-600 leading-relaxed font-african">
-                Evolving the Future with Anthropocentric Wisdom and Sentient Emergence for Humans, 
-                Non-Humans and the Planetary Ecosystem, rooted in African innovation and ancestral knowledge.
-              </p>
-            </motion.div>
-
-            {/* Mission */}
-            <motion.div variants={itemVariants} className="text-center lg:text-left">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-tribal-copper/20 text-tribal-copper rounded-african mb-6 animate-drum-beat">
-                <Target size={32} />
-              </div>
-              <h2 className="text-3xl font-african font-bold text-neutral-900 mb-6">
-                Our Mission
-              </h2>
-              <p className="text-lg text-neutral-600 leading-relaxed font-african">
-                To research, prototype, and scale sentient-aligned business models, products, systems 
-                that empower post-regenerative conscious economies, rooted in planetary intelligence, 
-                anthropocentric wisdoms, and futures innovation.
-              </p>
-            </motion.div>
           </motion.div>
         </div>
       </section>
@@ -197,8 +161,8 @@ const About = () => {
               <span className="text-tribal-gold"> Domains</span>
             </h2>
             <p className="text-xl text-neutral-600 max-w-3xl mx-auto leading-relaxed font-african">
-              Four core domains where we pioneer the transition from sustainable to regenerative 
-              to sentient futures through design innovation.
+              Four core domains where we pioneer the transition from sustainable
+              to regenerative to sentient futures through design innovation.
             </p>
           </motion.div>
 
@@ -251,19 +215,22 @@ const About = () => {
               <div>
                 <Zap className="mx-auto mb-4" size={40} />
                 <p className="font-african leading-relaxed">
-                  Pioneer global transition from sustainable to regenerative to sentient futures through design innovation
+                  Pioneer global transition from sustainable to regenerative to
+                  sentient futures through design innovation
                 </p>
               </div>
               <div>
                 <Target className="mx-auto mb-4" size={40} />
                 <p className="font-african leading-relaxed">
-                  Deliver future-fit models, tools, and ventures that solve today's systemic crises
+                  Deliver future-fit models, tools, and ventures that solve
+                  today's systemic crises
                 </p>
               </div>
               <div>
                 <Brain className="mx-auto mb-4" size={40} />
                 <p className="font-african leading-relaxed">
-                  Offer post-anthropocentric design perspectives grounded in emerging science
+                  Offer post-anthropocentric design perspectives grounded in
+                  emerging science
                 </p>
               </div>
             </div>
@@ -286,7 +253,8 @@ const About = () => {
               <span className="text-tribal-gold"> We Serve</span>
             </h2>
             <p className="text-xl text-neutral-600 max-w-3xl mx-auto leading-relaxed font-african">
-              We partner with forward-thinking organizations ready to lead the transition to sentient futures.
+              We partner with forward-thinking organizations ready to lead the
+              transition to sentient futures.
             </p>
           </motion.div>
 
@@ -304,8 +272,13 @@ const About = () => {
                 whileHover={{ scale: 1.05 }}
                 className="p-6 rounded-african bg-neutral-50 hover:bg-tribal-gold/10 transition-all duration-300 text-center"
               >
-                <Users className="mx-auto mb-4 text-tribal-gold animate-drum-beat" size={32} />
-                <p className="font-african font-medium text-neutral-900">{segment}</p>
+                <Users
+                  className="mx-auto mb-4 text-tribal-gold animate-drum-beat"
+                  size={32}
+                />
+                <p className="font-african font-medium text-neutral-900">
+                  {segment}
+                </p>
               </motion.div>
             ))}
           </motion.div>
@@ -349,7 +322,9 @@ const About = () => {
                 >
                   <metric.icon size={32} />
                 </motion.div>
-                <div className="text-3xl font-bold text-tribal-gold mb-2 font-african">{metric.value}</div>
+                <div className="text-3xl font-bold text-tribal-gold mb-2 font-african">
+                  {metric.value}
+                </div>
                 <h3 className="text-lg font-african font-semibold text-neutral-900 mb-2">
                   {metric.title}
                 </h3>
@@ -376,7 +351,9 @@ const About = () => {
             </h2>
             <div className="grid md:grid-cols-2 gap-8 text-white/90 text-left">
               <div>
-                <h3 className="font-african font-semibold text-white mb-3">Launch Initiatives</h3>
+                <h3 className="font-african font-semibold text-white mb-3">
+                  Launch Initiatives
+                </h3>
                 <ul className="space-y-2 font-african">
                   <li>• AxumWe Sentient Ventures Studio pilot</li>
                   <li>• MVP Showcase Program with 3–5 products</li>
@@ -384,9 +361,14 @@ const About = () => {
                 </ul>
               </div>
               <div>
-                <h3 className="font-african font-semibold text-white mb-3">Global Expansion</h3>
+                <h3 className="font-african font-semibold text-white mb-3">
+                  Global Expansion
+                </h3>
                 <ul className="space-y-2 font-african">
-                  <li>• Regional foresight exhibitions (Africa, Asia, Latin America)</li>
+                  <li>
+                    • Regional foresight exhibitions (Africa, Asia, Latin
+                    America)
+                  </li>
                   <li>• Strategic partnerships with UNDP, Future Earth</li>
                   <li>• AU Agenda 2063 platform collaborations</li>
                 </ul>

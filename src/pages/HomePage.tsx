@@ -17,6 +17,7 @@ import {
   Circle,
   Brain,
   Leaf,
+  Eye,
 } from "lucide-react";
 import hero from "./Hero4.png";
 import hero2 from "./20067973.jpg";
@@ -36,7 +37,8 @@ const HomePage = () => {
     margin: "-100px",
   });
   const isImpactInView = useInView(impactRef, { once: true, margin: "-100px" });
-
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -576,9 +578,58 @@ const HomePage = () => {
         </motion.div>
       </section>
 
+      {/* Vision & Mission Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            className="grid lg:grid-cols-2 gap-16"
+          >
+            {/* Vision */}
+            <motion.div
+              variants={itemVariants}
+              className="text-center lg:text-left"
+            >
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-tribal-gold/20 text-tribal-gold rounded-african mb-6 animate-drum-beat">
+                <Eye size={32} />
+              </div>
+              <h2 className="text-3xl font-african font-bold text-neutral-900 mb-6">
+                Our Vision
+              </h2>
+              <p className="text-lg text-neutral-600 leading-relaxed font-african">
+                Evolving the Future with Anthropocentric Wisdom and Sentient
+                Emergence for Humans, Non-Humans and the Planetary Ecosystem,
+                rooted in African innovation and ancestral knowledge.
+              </p>
+            </motion.div>
+
+            {/* Mission */}
+            <motion.div
+              variants={itemVariants}
+              className="text-center lg:text-left"
+            >
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-tribal-copper/20 text-tribal-copper rounded-african mb-6 animate-drum-beat">
+                <Target size={32} />
+              </div>
+              <h2 className="text-3xl font-african font-bold text-neutral-900 mb-6">
+                Our Mission
+              </h2>
+              <p className="text-lg text-neutral-600 leading-relaxed font-african">
+                To research, prototype, and scale sentient-aligned business
+                models, products, systems that empower post-regenerative
+                conscious economies, rooted in planetary intelligence,
+                anthropocentric wisdoms, and futures innovation.
+              </p>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Featured Products Section */}
-      <section
-        ref={featuresRef}
+      {/* <section
+        ref={ref}
         className="py-24 bg-gradient-to-br from-white via-neutral-50 to-primary-50 bg-kente-pattern"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -633,7 +684,6 @@ const HomePage = () => {
                 }}
                 className="group relative bg-white rounded-tribal shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 border border-tribal-gold/20"
               >
-                {/* Gradient Overlay */}
                 <div
                   className={`absolute inset-0 bg-gradient-to-br ${product.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
                 />
@@ -647,7 +697,6 @@ const HomePage = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
-                  {/* Floating Icon */}
                   <motion.div
                     className="absolute top-4 right-4"
                     whileHover={{ rotate: 360, scale: 1.2 }}
@@ -713,14 +762,13 @@ const HomePage = () => {
             </motion.button>
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       {/* Impact Metrics Section */}
       <section
         ref={impactRef}
         className="py-24 bg-gradient-to-r from-tribal-earth via-primary-500 to-tribal-copper relative overflow-hidden"
       >
-        {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0 bg-adinkra-pattern"></div>
         </div>
@@ -736,7 +784,7 @@ const HomePage = () => {
               variants={itemVariants}
               className="text-4xl md:text-5xl font-african font-bold text-white mb-8"
             >
-              Ubuntu Impact
+              Axumewe
               <span className="text-tribal-gold"> Impact</span>
             </motion.h2>
             <motion.p

@@ -21,6 +21,7 @@ import {
 } from "lucide-react";
 import hero from "./Hero4.png";
 import hero2 from "./20067973.jpg";
+import VisionMissionPage from "./VisionMissionPage";
 const HomePage = () => {
   const heroRef = useRef(null);
   const featuresRef = useRef(null);
@@ -579,15 +580,14 @@ const HomePage = () => {
       </section>
 
       {/* Vision & Mission Section */}
-      <section className="py-16 bg-white">
+      {/* <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
             className="grid lg:grid-cols-2 gap-16"
-          >
-            {/* Vision */}
+          > 
             <motion.div
               variants={itemVariants}
               className="text-center lg:text-left"
@@ -604,8 +604,7 @@ const HomePage = () => {
                 rooted in African innovation and ancestral knowledge.
               </p>
             </motion.div>
-
-            {/* Mission */}
+ 
             <motion.div
               variants={itemVariants}
               className="text-center lg:text-left"
@@ -625,7 +624,8 @@ const HomePage = () => {
             </motion.div>
           </motion.div>
         </div>
-      </section>
+      </section> */}
+      <VisionMissionPage />
 
       {/* Featured Products Section */}
       {/* <section

@@ -51,14 +51,14 @@ function App() {
         </section>
 
         {/* About Section */}
-        {/* <section id="about">
+        <section id="about">
           <About />
-        </section> */}
+        </section>
 
         {/* Portfolio Section */}
-        {/* <section id="portfolio">
+        <section id="portfolio">
           <Portfolio />
-        </section> */}
+        </section>
       </main>
       <Footer />
     </div>

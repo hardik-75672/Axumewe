@@ -173,7 +173,7 @@ const Contact = () => {
       </section>
 
       {/* Quick Actions */}
-      <section className="py-16 bg-white">
+      {/* <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             variants={containerVariants}
@@ -226,7 +226,7 @@ const Contact = () => {
             ))}
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       {/* Contact Form & Info */}
       <section className="py-16 bg-neutral-50">

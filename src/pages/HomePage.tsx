@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import videoLink from "./0_Business_Meeting_Video_Conference_3840x2160.mp4";
 import {
   ArrowRight,
   Play,
@@ -19,6 +20,7 @@ import {
   Leaf,
   Eye,
 } from "lucide-react";
+import { useState } from "react";
 import hero from "./Hero4.png";
 import hero2 from "./20067973.jpg";
 import VisionMissionPage from "./VisionMissionPage";
@@ -46,7 +48,7 @@ const HomePage = () => {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
-
+  const [showVideo, setShowVideo] = useState(false);
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -116,31 +118,31 @@ const HomePage = () => {
 
   const testimonials = [
     {
-      name: "Dr. Amara Okafor",
+      name: "Fatima O.",
       role: "Director of Innovation",
-      organization: "United Nations Development Programme",
+      organization: "FutureAfrica Capitae",
       content:
-        "AxumWe's sentient design approach has revolutionized how we think about sustainable development. Their tools bridge ancient wisdom with cutting-edge technology.",
+        "AxumWe helped us reimagine our entire venture through the lens of regenerative futures. Their sentient business design labs are decades ahead.",
       avatar:
         "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=100",
       rating: 5,
     },
     {
-      name: "Prof. Kwame Asante",
-      role: "Futures Research Lead",
-      organization: "African Union Commission",
+      name: "Kenji M.",
+      role: "Civic Innovation Lead",
+      organization: "Tokyo SmartGov Labs",
       content:
-        "The MVP-as-a-Service approach allowed us to rapidly prototype policy innovations that are now being implemented across member states.",
+        "Working with AxumWe was like stepping into the future – their tools don’t just solve problems, they awaken systems. The MVP we launched is both ethical and visionary.",
       avatar:
         "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=100",
       rating: 5,
     },
     {
-      name: "Zara Mohammed",
-      role: "Chief Innovation Officer",
-      organization: "Future Earth Initiative",
+      name: "Lucia V.",
+      role: "UX Director",
+      organization: "BioSense Technologies",
       content:
-        "AxumWe doesn't just design products—they design entire ecosystems of change. Their work is essential for planetary transformation.",
+        "Their sentient products and rituals-based design interfaces helped us create emotional resonance with our users. Our team was floored.",
       avatar:
         "https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=100",
       rating: 5,
@@ -286,7 +288,7 @@ const HomePage = () => {
                     ease: "linear",
                   }}
                 >
-                  Future Studio
+                  Futures Studio
                 </motion.span>
               </motion.h1>
 
@@ -353,7 +355,7 @@ const HomePage = () => {
                     backgroundColor: "rgba(255, 255, 255, 0.1)",
                   }}
                   whileTap={{ scale: 0.95 }}
-                  onClick={() => scrollToSection("about")}
+                  onClick={() => setShowVideo(true)}
                   className="group border-2 border-tribal-gold text-tribal-gold px-8 py-4 rounded-african font-african font-semibold text-lg hover:border-white hover:text-white transition-all duration-300 flex items-center justify-center backdrop-blur-sm"
                 >
                   <motion.div
@@ -1009,6 +1011,29 @@ const HomePage = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* Video Modal - Replace with your video URL */}
+      {showVideo && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm">
+          <div className="relative bg-white rounded-2xl shadow-2xl max-w-2xl w-full p-4">
+            <button
+              onClick={() => setShowVideo(false)}
+              className="absolute top-2 right-2 text-neutral-700 hover:text-red-500 text-2xl font-bold"
+              aria-label="Close"
+            >
+              ×
+            </button>
+            <div className="aspect-w-16 aspect-h-9 w-full">
+              <video
+                src={videoLink}
+                controls
+                autoPlay
+                className="w-full h-80 rounded-xl bg-black"
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

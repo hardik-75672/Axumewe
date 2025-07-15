@@ -182,7 +182,7 @@ const Services = () => {
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="py-16 bg-gradient-to-br from-primary-50 to-secondary-50">
+      {/* <section className="py-16 bg-gradient-to-br from-primary-50 to-secondary-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             ref={ref}
@@ -215,10 +215,10 @@ const Services = () => {
             </motion.p>
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       {/* Service Areas */}
-      <section className="py-16 bg-white">
+      {/* <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             variants={containerVariants}
@@ -294,7 +294,7 @@ const Services = () => {
             ))}
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       {/* MVP-as-a-Service Tiers */}
       <section className="py-16 bg-neutral-50">
@@ -443,6 +443,61 @@ const Services = () => {
               </motion.div>
             ))}
           </motion.div>
+        </div>
+      </section>
+
+      {/* Strategic Consulting Services Section */}
+      <section className="py-20">
+        <div className="max-w-4xl mx-auto rounded-3xl overflow-hidden shadow-xl bg-gradient-to-b from-primary-900 via-primary-800 to-primary-900 text-white">
+          <div className="px-8 pt-10 pb-6 text-center">
+            <h2 className="text-4xl font-bold mb-4">
+              Strategic Consulting Services
+            </h2>
+            <p className="text-lg text-primary-100 mb-6">
+              Leverage our deep expertise in foresight, sentient design, and
+              regenerative economics to guide your organization's transition.
+            </p>
+          </div>
+          <div className="px-8 pb-8">
+            <div className="grid md:grid-cols-2 gap-x-12 gap-y-4 mb-8">
+              <div className="flex items-start gap-3">
+                <CheckCircle className="text-primary-400 mt-1" size={22} />
+                <span>Strategic Foresight &amp; Futures Thinking</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle className="text-primary-400 mt-1" size={22} />
+                <span>Sentient Design &amp; Innovation Strategy</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle className="text-primary-400 mt-1" size={22} />
+                <span>Policy &amp; Governance Innovation</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle className="text-primary-400 mt-1" size={22} />
+                <span>Business Model Design &amp; Economic Architecture</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle className="text-primary-400 mt-1" size={22} />
+                <span>R&amp;D to MVP Innovation Pipeline Support</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle className="text-primary-400 mt-1" size={22} />
+                <span>Institutional Capacity Building</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle className="text-primary-400 mt-1" size={22} />
+                <span>Speculative Design &amp; Storytelling for Futures</span>
+              </div>
+            </div>
+            <div className="text-center text-primary-200 mb-6">
+              Available for projects and advisory retainers.
+            </div>
+            <div className="text-center">
+              <button className="w-full max-w-xl mx-auto bg-indigo-500 hover:bg-indigo-600 text-white font-bold text-lg py-4 rounded-xl shadow-lg transition-all duration-200">
+                Book a Consultation – $150/hour
+              </button>
+            </div>
+          </div>
         </div>
       </section>
 

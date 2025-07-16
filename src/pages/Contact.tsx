@@ -39,13 +39,19 @@ const Contact = () => {
       [e.target.name]: e.target.value,
     });
   };
-
+  const [sent, setSent] = useState(false);
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log("Form submitted:", formData);
+    const { name, email, organization, inquiry_type, subject, message } =
+      formData;
+    const mailtoLink = `mailto:towncryer@axumwe.com?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\nOrganization: ${organization}\nInquiry Type: ${inquiry_type}\n\n${message}`
+    )}`;
+    window.location.href = mailtoLink;
+    setSent(true);
   };
-
   const inquiryTypes = [
     { value: "products", label: "Product Inquiry", icon: Building },
     { value: "consulting", label: "Consulting Services", icon: Users },
@@ -60,30 +66,27 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email Us",
-      details: "hello@transitionstudio.io",
+      details: "towncryer@axumwe.com",
       description: "Send us an email anytime",
-      action: "Send Email",
     },
-    {
-      icon: Phone,
-      title: "Call Us",
-      details: "+234 (0) 123 456 7890",
-      description: "Mon-Fri from 9am to 5pm WAT",
-      action: "Call Now",
-    },
+    // {
+    //   icon: Phone,
+    //   title: "Call Us",
+    //   details: "+234 (0) 123 456 7890",
+    //   description: "Mon-Fri from 9am to 5pm WAT",
+    //   action: "Call Now",
+    // },
     {
       icon: MapPin,
       title: "Visit Us",
-      details: "Lagos, Nigeria",
-      description: "Come say hello at our studio",
-      action: "Get Directions",
+      details: "4D Unit, Karaoke Drive, Ruaka, Nairobi, Kenya",
+      description: "330 Arrowhead Blvd, Unit 50 A, Jonesborrow, Georgia, 30236",
     },
     {
       icon: Clock,
       title: "Working Hours",
       details: "Mon - Fri: 9am - 6pm WAT",
       description: "Saturday: 10am - 3pm WAT",
-      action: "View Calendar",
     },
   ];
 
@@ -244,6 +247,11 @@ const Contact = () => {
                 </h3>
 
                 <form onSubmit={handleSubmit} className="space-y-6">
+                  {sent && (
+                    <div className="text-green-600 font-semibold mb-4">
+                      Thank you! Your message has been sent.
+                    </div>
+                  )}
                   <div className="grid md:grid-cols-2 gap-6">
                     <motion.div whileFocus={{ scale: 1.02 }}>
                       <label className="block text-sm font-medium text-neutral-700 mb-2">
@@ -392,11 +400,23 @@ const Contact = () => {
                     <h4 className="text-lg font-semibold text-neutral-900 mb-1">
                       {info.title}
                     </h4>
+
                     <p className="text-primary-500 font-medium mb-1">
+                      <span className="text-black">
+                        {info.title == "Visit Us" ? ` Africa Addresses : ` : ""}
+                      </span>
                       {info.details}
                     </p>
+                    {info.title == "Visit Us" ? (
+                      <p className="text-primary-500 font-medium mb-1">
+                        <span className="text-black"> US Addresses : </span>
+                        {info.description}
+                      </p>
+                    ) : (
+                      ""
+                    )}
                     <p className="text-neutral-600 text-sm mb-3">
-                      {info.description}
+                      {info.title != "Visit Us" ? info.description : ""}
                     </p>
                     <motion.button
                       whileHover={{ scale: 1.05 }}

@@ -37,7 +37,7 @@ const FilterButtons: React.FC<FilterButtonsProps> = ({
           className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
             activeFilter === category
               ? "bg-orange-500 text-white shadow-lg"
-              : "bg-white/10 text-orange-200 hover:bg-white/20 hover:text-white"
+              : "bg-white/10 text-orange-600 hover:bg-white/20 hover:text-orange-800"
           }`}
         >
           {category}

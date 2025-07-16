@@ -189,23 +189,24 @@ const Footer = () => {
                   <Mail className="text-tribal-gold mt-1" size={16} />
                   <div>
                     <p className="text-neutral-300 text-sm font-african">
-                      hello@axumwe.io
+                      towncryer@axumwe.com
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-3">
+                  <MapPin className="text-tribal-gold mt-1" size={20} />
+                  <div>
+                    <p className="text-neutral-300 text-sm font-african">
+                      4D Unit, Karaoke Drive, Ruaka, Nairobi, Kenya
                     </p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <Phone className="text-tribal-gold mt-1" size={16} />
+                  <MapPin className="text-tribal-gold mt-1" size={18} />
                   <div>
                     <p className="text-neutral-300 text-sm font-african">
-                      +234 (0) 123-456-7890
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <MapPin className="text-tribal-gold mt-1" size={16} />
-                  <div>
-                    <p className="text-neutral-300 text-sm font-african">
-                      Lagos, Nigeria • Pan-African Network
+                      330 Arrowhead Blvd, Unit 50 A, Jonesborrow, Georgia, 30236
                     </p>
                   </div>
                 </div>
@@ -220,7 +221,7 @@ const Footer = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center text-sm text-neutral-400">
             <p className="font-african">
-              © 2024 AxumWe Design future studio. All rights reserved.
+              © 2025 AxumWe Design future studio. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <motion.a

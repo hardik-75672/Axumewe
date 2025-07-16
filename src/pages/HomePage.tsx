@@ -21,7 +21,7 @@ import {
   Eye,
 } from "lucide-react";
 import { useState } from "react";
-import hero from "./Hero4.png";
+import hero from "./final.png";
 import hero2 from "./20067973.jpg";
 import VisionMissionPage from "./VisionMissionPage";
 const HomePage = () => {
@@ -412,144 +412,167 @@ const HomePage = () => {
             </div>
 
             {/* Right Visual Element - Enhanced with Animations */}
-
-            <motion.div variants={itemVariants} className="relative top-0">
-              {/* Main 3D Card Container */}
-
-              <motion.div
-                animate={{
-                  rotateY: [0, 5, 0],
-                  rotateX: [0, 2, 0],
-                }}
-                transition={{ duration: 8, repeat: Infinity }}
-                className="relative perspective-1000"
+            <div className="d-flex flex-column items-center justify-center">
+              <motion.p
+                variants={itemVariants}
+                className="text-2xl md:text-2xl font-medium text-neutral-200 mb-18 max-w-3xl leading-relaxed font-african "
               >
-                {/* Central Hero Image */}
-                <motion.div
-                  whileHover={{
-                    scale: 1.02,
-                    rotateY: 10,
-                    rotateX: 5,
+                <motion.span
+                  className="text-transparent bg-clip-text bg-gradient-to-r from-tribal-gold via-tribal-copper to-tribal-sunset"
+                  animate={{
+                    backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
                   }}
-                  className="relative overflow-hidden rounded-tribal shadow-2xl transform-gpu border-4 border-tribal-gold/30"
-                  style={{
-                    background:
-                      "linear-gradient(135deg, rgba(210, 105, 30, 0.1), rgba(34, 139, 34, 0.1))",
+                  transition={{
+                    duration: 5,
+                    repeat: Infinity,
+                    ease: "linear",
                   }}
                 >
-                  <img
-                    src={hero}
-                    // src="https://images.pexels.com/photos/6200343/pexels-photo-6200343.jpeg?auto=compress&cs=tinysrgb&w=800"
-                    alt="Sentient innovation"
-                    className="w-full h-96 object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary-500/30 to-transparent bg-adinkra-pattern"></div>
+                  AxumWe&nbsp;
+                </motion.span>
+                leads the world, Co-Creating the Sentient Age, One Prototype at
+                a Time!
+              </motion.p>
+              <motion.div variants={itemVariants} className="relative top-0">
+                {/* Main 3D Card Container */}
 
-                  {/* Animated Overlay Elements */}
+                <motion.div
+                  animate={{
+                    rotateY: [0, 5, 0],
+                    rotateX: [0, 2, 0],
+                  }}
+                  transition={{ duration: 8, repeat: Infinity }}
+                  className="relative perspective-1000"
+                >
+                  {/* Central Hero Image */}
                   <motion.div
-                    className="absolute inset-0"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 1 }}
+                    whileHover={{
+                      scale: 1.02,
+                      rotateY: 10,
+                      rotateX: 5,
+                    }}
+                    className="relative overflow-hidden rounded-tribal shadow-2xl transform-gpu border-4 border-tribal-gold/30"
+                    style={{
+                      background:
+                        "linear-gradient(135deg, rgba(210, 105, 30, 0.1), rgba(34, 139, 34, 0.1))",
+                    }}
                   >
-                    {/* Floating Geometric Shapes */}
-                    <motion.div
-                      animate={{
-                        rotate: [0, 360],
-                        scale: [1, 1.1, 1],
-                      }}
-                      transition={{ duration: 10, repeat: Infinity }}
-                      className="absolute top-4 right-4 w-12 h-12 border-2 border-tribal-gold/60 rounded-full animate-drum-beat"
+                    <img
+                      src={hero}
+                      // src="https://images.pexels.com/photos/6200343/pexels-photo-6200343.jpeg?auto=compress&cs=tinysrgb&w=800"
+                      alt="Sentient innovation"
+                      className="w-full h-96 object-cover"
                     />
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary-500/30 to-transparent bg-adinkra-pattern"></div>
 
+                    {/* Animated Overlay Elements */}
                     <motion.div
-                      animate={{
-                        rotate: [360, 0],
-                        y: [0, -10, 0],
-                      }}
-                      transition={{ duration: 6, repeat: Infinity }}
-                      className="absolute bottom-4 left-4 w-8 h-8 bg-tribal-kente/60 rounded-lg rotate-45"
-                    />
+                      className="absolute inset-0"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 1 }}
+                    >
+                      {/* Floating Geometric Shapes */}
+                      <motion.div
+                        animate={{
+                          rotate: [0, 360],
+                          scale: [1, 1.1, 1],
+                        }}
+                        transition={{ duration: 10, repeat: Infinity }}
+                        className="absolute top-4 right-4 w-12 h-12 border-2 border-tribal-gold/60 rounded-full animate-drum-beat"
+                      />
 
-                    {/* Brain Pattern */}
+                      <motion.div
+                        animate={{
+                          rotate: [360, 0],
+                          y: [0, -10, 0],
+                        }}
+                        transition={{ duration: 6, repeat: Infinity }}
+                        className="absolute bottom-4 left-4 w-8 h-8 bg-tribal-kente/60 rounded-lg rotate-45"
+                      />
+
+                      {/* Brain Pattern */}
+                      <motion.div
+                        animate={{
+                          scale: [1, 1.2, 1],
+                          opacity: [0.3, 0.7, 0.3],
+                        }}
+                        transition={{ duration: 4, repeat: Infinity }}
+                        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                      >
+                        <Brain className="text-tribal-gold/20" size={80} />
+                      </motion.div>
+                    </motion.div>
+                  </motion.div>
+
+                  {/* Floating Achievement Cards */}
+                  <motion.div
+                    initial={{ scale: 0, rotate: -15, x: -50, y: -50 }}
+                    animate={{ scale: 1, rotate: 0, x: 0, y: 0 }}
+                    transition={{ delay: 1, type: "spring", stiffness: 100 }}
+                    whileHover={{ scale: 1.1, rotate: 5, y: -5 }}
+                    className="absolute -top-8 -left-8 bg-gradient-to-r from-tribal-gold to-tribal-copper text-white p-6 rounded-african shadow-2xl backdrop-blur-sm border border-tribal-gold/30"
+                  >
+                    <motion.div
+                      animate={{ rotate: [0, 360] }}
+                      transition={{
+                        duration: 15,
+                        repeat: Infinity,
+                        ease: "linear",
+                      }}
+                      className="mb-2"
+                    >
+                      <Target className="text-white" size={24} />
+                    </motion.div>
+                    <div className="text-2xl font-bold mb-1 font-african">
+                      50+
+                    </div>
+                    <div className="text-sm opacity-90 font-african">
+                      Ubuntu Ventures
+                    </div>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ scale: 0, rotate: 15, x: 50, y: 50 }}
+                    animate={{ scale: 1, rotate: 0, x: 0, y: 0 }}
+                    transition={{ delay: 1.2, type: "spring", stiffness: 100 }}
+                    whileHover={{ scale: 1.1, rotate: -5, y: -5 }}
+                    className="absolute -bottom-8 -right-8 bg-gradient-to-r from-tribal-kente to-secondary-500 text-white p-6 rounded-african shadow-2xl backdrop-blur-sm border border-tribal-gold/30"
+                  >
                     <motion.div
                       animate={{
                         scale: [1, 1.2, 1],
-                        opacity: [0.3, 0.7, 0.3],
+                        rotate: [0, 180, 360],
                       }}
-                      transition={{ duration: 4, repeat: Infinity }}
-                      className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                      transition={{ duration: 8, repeat: Infinity }}
+                      className="mb-2"
                     >
-                      <Brain className="text-tribal-gold/20" size={80} />
+                      <Globe className="text-white" size={24} />
                     </motion.div>
+                    <div className="text-2xl font-bold mb-1 font-african">
+                      25
+                    </div>
+                    <div className="text-sm opacity-90 font-african">
+                      African Nations
+                    </div>
                   </motion.div>
-                </motion.div>
 
-                {/* Floating Achievement Cards */}
-                <motion.div
-                  initial={{ scale: 0, rotate: -15, x: -50, y: -50 }}
-                  animate={{ scale: 1, rotate: 0, x: 0, y: 0 }}
-                  transition={{ delay: 1, type: "spring", stiffness: 100 }}
-                  whileHover={{ scale: 1.1, rotate: 5, y: -5 }}
-                  className="absolute -top-8 -left-8 bg-gradient-to-r from-tribal-gold to-tribal-copper text-white p-6 rounded-african shadow-2xl backdrop-blur-sm border border-tribal-gold/30"
-                >
-                  <motion.div
-                    animate={{ rotate: [0, 360] }}
-                    transition={{
-                      duration: 15,
-                      repeat: Infinity,
-                      ease: "linear",
-                    }}
-                    className="mb-2"
-                  >
-                    <Target className="text-white" size={24} />
-                  </motion.div>
-                  <div className="text-2xl font-bold mb-1 font-african">
-                    50+
-                  </div>
-                  <div className="text-sm opacity-90 font-african">
-                    Ubuntu Ventures
-                  </div>
-                </motion.div>
-
-                <motion.div
-                  initial={{ scale: 0, rotate: 15, x: 50, y: 50 }}
-                  animate={{ scale: 1, rotate: 0, x: 0, y: 0 }}
-                  transition={{ delay: 1.2, type: "spring", stiffness: 100 }}
-                  whileHover={{ scale: 1.1, rotate: -5, y: -5 }}
-                  className="absolute -bottom-8 -right-8 bg-gradient-to-r from-tribal-kente to-secondary-500 text-white p-6 rounded-african shadow-2xl backdrop-blur-sm border border-tribal-gold/30"
-                >
+                  {/* Pulsing Glow Effect */}
                   <motion.div
                     animate={{
-                      scale: [1, 1.2, 1],
-                      rotate: [0, 180, 360],
+                      scale: [1, 1.05, 1],
+                      opacity: [0.5, 0.8, 0.5],
                     }}
-                    transition={{ duration: 8, repeat: Infinity }}
-                    className="mb-2"
-                  >
-                    <Globe className="text-white" size={24} />
-                  </motion.div>
-                  <div className="text-2xl font-bold mb-1 font-african">25</div>
-                  <div className="text-sm opacity-90 font-african">
-                    African Nations
-                  </div>
+                    transition={{
+                      duration: 4,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                    className="absolute -inset-4 bg-gradient-to-r from-tribal-gold/20 via-tribal-copper/20 to-tribal-kente/20 rounded-tribal blur-xl"
+                  />
                 </motion.div>
-
-                {/* Pulsing Glow Effect */}
-                <motion.div
-                  animate={{
-                    scale: [1, 1.05, 1],
-                    opacity: [0.5, 0.8, 0.5],
-                  }}
-                  transition={{
-                    duration: 4,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                  className="absolute -inset-4 bg-gradient-to-r from-tribal-gold/20 via-tribal-copper/20 to-tribal-kente/20 rounded-tribal blur-xl"
-                />
               </motion.div>
-            </motion.div>
+            </div>
           </motion.div>
         </div>
 
@@ -850,7 +873,7 @@ const HomePage = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section
+      {/* <section
         ref={testimonialsRef}
         className="py-24 bg-gradient-to-br from-neutral-50 to-primary-50 bg-kente-pattern"
       >
@@ -932,11 +955,10 @@ const HomePage = () => {
             ))}
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       {/* Enhanced CTA Section */}
-      <section className="py-24 bg-gradient-to-r from-tribal-earth via-tribal-copper to-tribal-kente relative overflow-hidden">
-        {/* Animated Background Elements */}
+      {/* <section className="py-24 bg-gradient-to-r from-tribal-earth via-tribal-copper to-tribal-kente relative overflow-hidden">
         <div className="absolute inset-0">
           <motion.div
             animate={{
@@ -1010,7 +1032,7 @@ const HomePage = () => {
             </div>
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       {/* Video Modal - Replace with your video URL */}
       {showVideo && (

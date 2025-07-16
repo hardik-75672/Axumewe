@@ -119,7 +119,7 @@ const Services = () => {
         "Premium human-led analysis",
         "Full IP documentation & licensing",
       ],
-      color: "from-accent-500 to-primary-500",
+      color: "from-primary-500 to-secondary-500",
     },
   ];
 
@@ -427,7 +427,7 @@ const Services = () => {
                 key={milestone.name}
                 variants={itemVariants}
                 whileHover={{ y: -5 }}
-                className="p-6 rounded-xl bg-neutral-50 hover:bg-white hover:shadow-lg transition-all duration-300 border border-neutral-100"
+                className="p-6 rounded-xl shadow-md shadow-black bg-neutral-50 hover:bg-white hover:shadow-lg transition-all duration-300 border border-neutral-100"
               >
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="text-lg font-semibold text-neutral-900">
@@ -492,10 +492,15 @@ const Services = () => {
             <div className="text-center text-primary-200 mb-6">
               Available for projects and advisory retainers.
             </div>
-            <div className="text-center">
-              <button className="w-full max-w-xl mx-auto bg-indigo-500 hover:bg-indigo-600 text-white font-bold text-lg py-4 rounded-xl shadow-lg transition-all duration-200">
-                Book a Consultation – $150/hour
-              </button>
+            <div className="flex justify-center">
+              <a
+                href="mailto:towncryer@axumwe.com?subject=Consultation%20Request"
+                className="w-full max-w-xl"
+              >
+                <button className="w-full bg-gradient-to-r from-orange-500 to-yellow-500 hover:from-orange-600 hover:to-yellow-600 text-white font-bold text-lg py-4 rounded-xl shadow-lg transition-all duration-200">
+                  Book a Consultation – $150/hour
+                </button>
+              </a>
             </div>
           </div>
         </div>
@@ -523,6 +528,10 @@ const Services = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-white text-primary-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-neutral-100 transition-colors duration-200"
+                onClick={() =>
+                  (window.location.href =
+                    "mailto:towncryer@axumwe.com?subject=Consultation%20Request")
+                }
               >
                 Book Consultation
               </motion.button>

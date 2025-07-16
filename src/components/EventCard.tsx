@@ -23,7 +23,7 @@ interface EventCardProps {
 const EventCard: React.FC<EventCardProps> = ({ event, index }) => {
   return (
     <div
-      className={`group relative overflow-hidden rounded-2xl backdrop-blur-lg bg-white/80 border border-orange-200/30 hover:bg-white/90 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-orange-500/20 ${
+      className={`group relative overflow-hidden rounded-2xl backdrop-blur-lg bg-white/80 border  border-orange-200/30 hover:bg-white/90 transition-all duration-500 hover:scale-[1.02] shadow-md shadow-black hover:shadow-orange-500/30 hover:shadow-3xl ${
         event.featured ? "ring-2 ring-orange-400/60" : ""
       }`}
       style={{
@@ -59,7 +59,7 @@ const EventCard: React.FC<EventCardProps> = ({ event, index }) => {
           </div>
         </div>
 
-        <h3 className="text-xl font-bold text-white mb-2 group-hover:text-orange-200 transition-colors">
+        <h3 className="text-xl font-bold text-white mb-2 group-hover:text-orange- transition-colors">
           {event.title}
         </h3>
 

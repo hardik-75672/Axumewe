@@ -65,7 +65,7 @@ const About = () => {
     },
     {
       icon: Target,
-      title: "Sentient Design Consulting",
+      title: "Sentient Designs Consulting",
       description:
         "Advise institutions on transition design, scenario planning, and regenerative innovation strategies to lead the future.",
     },
@@ -129,7 +129,7 @@ const About = () => {
               variants={itemVariants}
               className="text-4xl md:text-6xl font-african font-bold text-neutral-900 mb-8"
             >
-              Planetary Design Innovation
+              Planetary Designs Innovation
               <span className="text-tribal-gold"> Studio</span>
             </motion.h1>
 
@@ -157,7 +157,7 @@ const About = () => {
             className="text-center mb-16"
           >
             <h2 className="text-4xl font-african font-bold text-neutral-900 mb-8">
-              Strategic Design
+              Strategic Designs
               <span className="text-tribal-gold"> Domains</span>
             </h2>
             <p className="text-xl text-neutral-600 max-w-3xl mx-auto leading-relaxed font-african">

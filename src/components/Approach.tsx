@@ -134,10 +134,10 @@ const Approach = () => (
           <span className="text-primary-500 text-2xl mr-2">🎛️</span>
         </div>
         <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-2">
-          Our Approach:{" "}
-          <span className="text-primary-500">
+          Our Approach{" "}
+          <p className="text-primary-500 mt-4">
             Building the <span className="text-primary-500">Sentient Age</span>
-          </span>
+          </p>
         </h1>
         <p className="italic text-lg text-neutral-600 mb-8">
           "We do not predict the future — we prototype it."

@@ -297,7 +297,7 @@ const Services = () => {
       </section> */}
 
       {/* MVP-as-a-Service Tiers */}
-      <section className="py-16 bg-neutral-50">
+      <section className=" pb-16 bg-neutral-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -306,6 +306,9 @@ const Services = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
+            <h1 className="text-5xl md:text-5xl font-bold bg-gradient-to-r from-orange-500 via-yellow-500 to-orange-700 bg-clip-text text-transparent mb-5">
+              Our Services
+            </h1>
             <h2 className="text-4xl fony-african font-bold text-neutral-900 mb-8">
               MVP-as-a-Service
               <span className="text-primary-500"> Tiers</span>

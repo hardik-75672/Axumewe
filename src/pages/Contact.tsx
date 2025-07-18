@@ -15,6 +15,9 @@ import {
   Headphones,
   Users,
   Building,
+  Zap,
+  Target,
+  Heart,
 } from "lucide-react";
 
 const Contact = () => {
@@ -124,6 +127,9 @@ const Contact = () => {
       },
     },
   };
+  const impactRef = useRef(null);
+
+  const isImpactInView = useInView(impactRef, { once: true, margin: "-100px" });
 
   const itemVariants = {
     hidden: { y: 30, opacity: 0 },
@@ -136,6 +142,26 @@ const Contact = () => {
       },
     },
   };
+  const impactMetrics = [
+    {
+      number: "2.5M",
+      label: "Lives Impacted",
+      description: "Through regenerative ventures and policies",
+      icon: Heart,
+    },
+    {
+      number: "150%",
+      label: "Average ROI",
+      description: "For organizations using sentient models",
+      icon: Target,
+    },
+    {
+      number: "85%",
+      label: "Success Rate",
+      description: "In achieving transformation goals",
+      icon: Zap,
+    },
+  ];
 
   return (
     <div className="min-h-screen pt-20">
@@ -423,7 +449,7 @@ const Contact = () => {
                       whileTap={{ scale: 0.95 }}
                       className="text-primary-500 font-medium text-sm hover:text-primary-600 transition-colors duration-200"
                     >
-                      {info.action}
+                      {/* {info.action} */}
                     </motion.button>
                   </div>
                 </motion.div>
@@ -453,6 +479,87 @@ const Contact = () => {
         </div>
       </section>
 
+      <section
+        ref={impactRef}
+        className="py-24 bg-gradient-to-r from-tribal-earth via-primary-500 to-tribal-copper relative overflow-hidden"
+      >
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0 bg-adinkra-pattern"></div>
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate={isImpactInView ? "visible" : "hidden"}
+            className="text-center mb-16"
+          >
+            <motion.h2
+              variants={itemVariants}
+              className="text-4xl md:text-5xl font-african font-bold text-white mb-8"
+            >
+              Axumwe
+              <span className="text-tribal-gold"> Impact</span>
+            </motion.h2>
+            <motion.p
+              variants={itemVariants}
+              className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed font-african"
+            >
+              Real results from African organizations and global partners
+              transforming their approach to complex challenges through Ubuntu
+              philosophy and regenerative design methodologies.
+            </motion.p>
+          </motion.div>
+
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate={isImpactInView ? "visible" : "hidden"}
+            className="grid md:grid-cols-3 gap-8"
+          >
+            {impactMetrics.map((metric, index) => (
+              <motion.div
+                key={metric.label}
+                variants={itemVariants}
+                whileHover={{
+                  scale: 1.1,
+                  rotateY: 10,
+                }}
+                className="text-center bg-white/10 backdrop-blur-sm rounded-tribal p-8 border border-tribal-gold/30 hover:bg-tribal-gold/20 transition-all duration-300"
+              >
+                <motion.div
+                  animate={{
+                    rotate: [0, 360],
+                    scale: [1, 1.1, 1],
+                  }}
+                  transition={{
+                    duration: 10,
+                    repeat: Infinity,
+                    delay: index * 0.5,
+                  }}
+                  className="inline-flex items-center justify-center w-16 h-16 bg-tribal-gold rounded-african mb-6 animate-drum-beat"
+                >
+                  <metric.icon className="text-white" size={32} />
+                </motion.div>
+                <motion.div
+                  className="text-5xl font-bold text-white mb-4 font-african"
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{ delay: index * 0.2, type: "spring" }}
+                >
+                  {metric.number}
+                </motion.div>
+                <h3 className="text-xl font-african font-semibold text-tribal-gold mb-2">
+                  {metric.label}
+                </h3>
+                <p className="text-white/80 leading-relaxed font-african">
+                  {metric.description}
+                </p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
       {/* FAQ Section */}
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">

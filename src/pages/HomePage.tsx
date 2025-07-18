@@ -790,7 +790,7 @@ const HomePage = () => {
       </section> */}
 
       {/* Impact Metrics Section */}
-      <section
+      {/* <section
         ref={impactRef}
         className="py-24 bg-gradient-to-r from-tribal-earth via-primary-500 to-tribal-copper relative overflow-hidden"
       >
@@ -870,7 +870,7 @@ const HomePage = () => {
             ))}
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       {/* Testimonials Section */}
       {/* <section

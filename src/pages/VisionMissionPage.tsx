@@ -17,8 +17,7 @@ const VisionMissionPage = () => (
           </h2>
           <p className="text-xl text-neutral-800 leading-relaxed">
             Evolving the Future with Anthropocentric Wisdom and Sentient
-            Emergence for Humans, Non-Humans and the Planetary Ecosystem, rooted
-            in African innovation and ancestral knowledge.
+            Emergence For Humans, Non-Humans and the Planetary Ecosystem.
           </p>
         </div>
         {/* Mission */}

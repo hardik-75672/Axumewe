@@ -82,7 +82,7 @@ const EventsPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 via-yellow-50 to-orange-100 pt-20">
       <section className="py-16 bg-gradient-to-r from-tribal-earth to-tribal-copper bg-adinkra-pattern">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -92,7 +92,7 @@ const EventsPage: React.FC = () => {
             <h2 className="text-3xl md:text-4xl font-african font-bold text-white mb-8">
               Value Proposition
             </h2>
-            <div className="grid md:grid-cols-3 gap-8 text-white/90">
+            <div className="grid md:grid-cols-3 gap-36 text-xl text-white/90">
               <div>
                 <Zap className="mx-auto mb-4" size={40} />
                 <p className="font-african leading-relaxed">

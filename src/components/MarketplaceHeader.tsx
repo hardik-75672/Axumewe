@@ -11,9 +11,10 @@ const MarketplaceHeader: React.FC = () => {
       </div>
 
       <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-        <span className="bg-gradient-to-r from-orange-400 via-yellow-400 to-orange-500 bg-clip-text text-transparent">
-          Marketplace: Downloadable Toolkits & IP
-        </span>
+        Marketplace
+        <p className="bg-gradient-to-r from-orange-400 via-yellow-400 to-orange-500 bg-clip-text text-transparent mt-4">
+          Downloadable Toolkits & IP
+        </p>
       </h1>
 
       <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8">

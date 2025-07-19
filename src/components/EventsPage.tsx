@@ -262,9 +262,9 @@ const EventsPage: React.FC = () => {
               className="text-xl text-white/90 mb-12 font-african leading-relaxed"
               whileHover={{ scale: 1.05 }}
             >
-              Join African organizations and global partners using Ubuntu
-              philosophy to create regenerative solutions that honor ancestral
-              wisdom while building futures for all life.
+              Join our growing list of organizations and partners adopting our
+              model to create regenerative solutions that honor anthropocentric
+              wisdom while building sentient futures for all life.
             </motion.p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <motion.button

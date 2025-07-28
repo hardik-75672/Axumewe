@@ -741,9 +741,18 @@ const Services = () => {
                     {milestone.price}
                   </span>
                 </div>
-                <p className="text-neutral-600 text-sm leading-relaxed">
+                <p className="text-neutral-600 text-sm leading-relaxed mb-4">
                   {milestone.description}
                 </p>
+                <button
+                  className="mt-2 w-full bg-gradient-to-r from-orange-500 to-yellow-500 hover:from-orange-600 hover:to-yellow-600 text-white font-semibold py-2 rounded-full shadow transition-all duration-200"
+                  onClick={(e) => {
+                    e.stopPropagation(); // Prevent modal from opening
+                    alert(`Added "${milestone.name}" to cart!`);
+                  }}
+                >
+                  Add to Cart
+                </button>
               </motion.div>
             ))}
           </motion.div>

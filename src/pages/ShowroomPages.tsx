@@ -98,9 +98,7 @@ const ShowRoomPage: React.FC = () => {
                 </div>
                 <div className="flex items-center justify-center">
                   <a
-                    href={`mailto:towncryer@axumwe.com?subject=Confidential%20Briefing%20Request%20for%20${encodeURIComponent(
-                      venture.title
-                    )}`}
+                    href={`https://calendar.app.google/xRZETVre389BcR4b8`}
                     className="w-full flex justify-center"
                   >
                     <button className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gradient-to-r from-orange-400 to-yellow-400 hover:from-orange-500 hover:to-yellow-500 text-white font-semibold text-sm shadow-md transition-all duration-200 border border-orange-200 hover:border-orange-400 focus:outline-none focus:ring-2 focus:ring-orange-300">
@@ -115,7 +113,7 @@ const ShowRoomPage: React.FC = () => {
         </div>
 
         {/* Bottom CTA */}
-        <div className="text-center mt-20">
+        {/* <div className="text-center mt-20">
           <p className="text-neutral-700 mb-6 text-lg">
             Interested in partnering with us or investing in these ventures?
           </p>
@@ -125,7 +123,7 @@ const ShowRoomPage: React.FC = () => {
               <ArrowRight className="w-4 h-4" />
             </button>
           </a>
-        </div>
+        </div> */}
       </div>
     </div>
   );

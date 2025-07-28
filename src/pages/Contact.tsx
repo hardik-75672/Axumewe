@@ -127,6 +127,13 @@ const Contact = () => {
       },
     },
   };
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   const impactRef = useRef(null);
 
   const isImpactInView = useInView(impactRef, { once: true, margin: "-100px" });
@@ -166,7 +173,7 @@ const Contact = () => {
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="py-16 bg-gradient-to-br from-primary-50 to-secondary-50">
+      {/* <section className="py-16 bg-gradient-to-br from-primary-50 to-secondary-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             ref={ref}
@@ -199,8 +206,82 @@ const Contact = () => {
             </motion.p>
           </motion.div>
         </div>
-      </section>
+      </section> */}
+      <section className="py-24 bg-gradient-to-r from-tribal-earth via-tribal-copper to-tribal-kente relative overflow-hidden">
+        <div className="absolute inset-0">
+          <motion.div
+            animate={{
+              scale: [1, 1.2, 1],
+              rotate: [0, 180, 360],
+            }}
+            transition={{ duration: 20, repeat: Infinity }}
+            className="absolute top-10 left-10 w-32 h-32 border border-tribal-gold/30 rounded-african"
+          />
+          <motion.div
+            animate={{
+              scale: [1.2, 1, 1.2],
+              rotate: [360, 180, 0],
+            }}
+            transition={{ duration: 15, repeat: Infinity }}
+            className="absolute bottom-10 right-10 w-24 h-24 border border-tribal-gold/30 rounded-african rotate-45"
+          />
+        </div>
 
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <motion.h2
+              className="text-4xl md:text-6xl font-african font-bold text-white mb-8"
+              animate={{
+                textShadow: [
+                  "0 0 20px rgba(255, 215, 0, 0.5)",
+                  "0 0 40px rgba(255, 215, 0, 0.8)",
+                  "0 0 20px rgba(255, 215, 0, 0.5)",
+                ],
+              }}
+              transition={{ duration: 3, repeat: Infinity }}
+            >
+              Ready to Design sentient Futures?
+            </motion.h2>
+            <motion.p
+              className="text-xl text-white/90 mb-12 font-african leading-relaxed"
+              whileHover={{ scale: 1.05 }}
+            >
+              Join our growing list of organizations and partners adopting our
+              model to create regenerative solutions that honor anthropocentric
+              wisdom while building sentient futures for all life.
+            </motion.p>
+            {/* <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <motion.button
+                whileHover={{
+                  scale: 1.1,
+                  boxShadow: "0 20px 40px rgba(255, 255, 255, 0.3)",
+                }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => scrollToSection("contact")}
+                className="bg-white text-tribal-earth px-10 py-4 rounded-african font-african font-semibold text-lg hover:bg-neutral-100 transition-all duration-300 shadow-2xl"
+              >
+                Begin Your Journey
+              </motion.button>
+              <motion.button
+                whileHover={{
+                  scale: 1.1,
+                  backgroundColor: "rgba(255, 255, 255, 0.1)",
+                }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => scrollToSection("services")}
+                className="border-2 border-tribal-gold text-tribal-gold px-10 py-4 rounded-african font-african font-semibold text-lg hover:bg-tribal-gold/10 hover:text-white transition-all duration-300"
+              >
+                Explore Solutions
+              </motion.button>
+            </div> */}
+          </motion.div>
+        </div>
+      </section>
       {/* Quick Actions */}
       {/* <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

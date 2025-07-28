@@ -19,6 +19,11 @@ const Services = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [activeService, setActiveService] = useState(0);
+  const [openEmpathizeModal, setOpenEmpathizeModal] = useState(false);
+  const [selectedTier, setSelectedTier] = useState<
+    (typeof mvpTiers)[number] | null
+  >(null);
+  const [selectedMilestone, setSelectedMilestone] = useState("");
 
   const serviceAreas = [
     {
@@ -156,6 +161,110 @@ const Services = () => {
     },
   ];
 
+  // Add milestone details for modal rendering
+  const milestoneDetails: Record<
+    string,
+    {
+      scope: string;
+      purpose: string;
+      activities: string[];
+      deliverables: string[];
+    }
+  > = {
+    Empathize: {
+      scope: "Data collection, discovery, user need analysis",
+      purpose:
+        "To deeply understand the people, systems, and environments you’re designing for",
+      activities: [
+        "Stakeholder interviews (1-on-1 and/or group)",
+        "Contextual inquiry and ethnographic observation",
+        "User personas and behavior mapping",
+        "Pain point and aspirations discovery",
+        "Cultural or ecological immersion (if relevant)",
+      ],
+      deliverables: [
+        "Empathy Map (visual + written)",
+        "Stakeholder Map (power, influence, interest)",
+        "Discovery Report (key insights, quotes, themes)",
+        "Preliminary User Journey Map",
+      ],
+    },
+    Define: {
+      scope: "Design challenge framing, hypothesis design",
+      purpose:
+        "To clearly articulate the problem and define actionable hypotheses",
+      activities: [
+        "Problem statement development",
+        "Hypothesis formulation",
+        "Stakeholder alignment sessions",
+        "Success criteria definition",
+      ],
+      deliverables: [
+        "Problem Statement",
+        "Hypothesis Document",
+        "Stakeholder Alignment Summary",
+        "Success Criteria Checklist",
+      ],
+    },
+    Ideate: {
+      scope: "Brainstorming, speculative design generation",
+      purpose: "To generate a wide range of creative solutions and concepts",
+      activities: [
+        "Ideation workshops",
+        "Speculative design sessions",
+        "Concept sketching",
+        "Solution prioritization",
+      ],
+      deliverables: [
+        "Idea Portfolio",
+        "Concept Sketches",
+        "Prioritized Solution List",
+      ],
+    },
+    Prototype: {
+      scope: "MVP prototyping, service model sketching, UX design",
+      purpose: "To create tangible prototypes for testing and feedback",
+      activities: [
+        "MVP prototyping",
+        "Service model sketching",
+        "UX/UI design",
+        "Interactive mockups",
+      ],
+      deliverables: [
+        "MVP Prototype",
+        "Service Model Blueprint",
+        "UX/UI Mockups",
+      ],
+    },
+    "Test & Validate": {
+      scope: "Stakeholder validation, iteration loops, experimentation",
+      purpose: "To validate solutions and iterate based on feedback",
+      activities: [
+        "Stakeholder validation sessions",
+        "User testing",
+        "Iteration loops",
+        "Experimentation",
+      ],
+      deliverables: ["Validation Report", "Test Results", "Iteration Log"],
+    },
+    "Launch & License": {
+      scope: "MVP documentation, IP assets, licensing terms",
+      purpose: "To prepare for launch and secure intellectual property",
+      activities: [
+        "MVP documentation",
+        "IP asset creation",
+        "Licensing terms drafting",
+        "Launch planning",
+      ],
+      deliverables: [
+        "MVP Documentation",
+        "IP Assets",
+        "Licensing Terms",
+        "Launch Plan",
+      ],
+    },
+  };
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -177,6 +286,182 @@ const Services = () => {
         ease: "easeOut",
       },
     },
+  };
+  // const [selectedTier, setSelectedTier] = useState(null);
+
+  type TierName = "AI Tier" | "Hybrid Tier" | "Advanced Tier";
+  type TableTier = {
+    name: string;
+    duration: string;
+    ratio: string;
+    ideal: string;
+    concept: string;
+    features: string[];
+    sprints: string[][];
+    output: string;
+  };
+  const table: Record<TierName, TableTier> = {
+    "AI Tier": {
+      name: "AI-Led, Market-Tested",
+      duration: "1–3 months",
+      ratio: "80% AI / 20% Human",
+      ideal:
+        "Early-stage innovators, solopreneurs, impact fellows with lean budgets",
+      concept:
+        "I have a bold idea… I want to validate, prototype, and test a future-facing startup using smart AI tools and go-to-market assets.",
+      features: [
+        "AI-driven futures scan",
+        "Automated empathy + personas",
+        "Low-fidelity MVP & standard launch docs",
+        "AI-led branding",
+      ],
+      sprints: [
+        [
+          "AI uploaded brief + AI generated Design Brief & Tuning Plan",
+          "Implementation",
+        ],
+        [
+          "Empathy/stakeholder mapping",
+          "Wireframes/mockups",
+          "Scenario testing",
+          "Refined MVP",
+        ],
+        [
+          "AI financials + pitch assets",
+          "Shopify/landing page",
+          "Optional soft launch",
+        ],
+      ],
+      output:
+        "Market-validated MVP with prototype, light brand & basic launch kit",
+    },
+    "Hybrid Tier": {
+      name: "Co-Created Startup: Participatory Design Meets Systems Thinking",
+      duration: "2–4 months",
+      ratio: "50% AI / 50% Human",
+      ideal:
+        "NGOs, Foundations, youth incubators, consortiums building systemic impact startups",
+      concept:
+        "We’re designing a mission-driven venture… Our MVP isn’t just a product—it’s a systemic solution.",
+      features: [
+        "Hybrid research approach",
+        "Stakeholder workshops",
+        "Narrative framing work",
+        "Mid-fidelity MVP",
+        "Governance + ops testing",
+      ],
+      sprints: [
+        [
+          "Co-creation with stakeholders",
+          "Story-framed MVP Brief",
+          "Collaborative roadmap",
+        ],
+        [
+          "Empathy workshops",
+          "Ideation labs",
+          "Storytelling + business model",
+          "Community testing",
+        ],
+        [
+          "Operational setup",
+          "Legal + branding",
+          "Launch strategy",
+          "Platform + CRM/API",
+          "Investor deck",
+        ],
+      ],
+      output:
+        "Validated systemic MVP with story, governance, and go-to-market readiness",
+    },
+    "Advanced Tier": {
+      name: "Deep Earth Startup: Human-Led, Culturally Rooted, Future-Ready",
+      duration: "3–6 months",
+      ratio: "20% AI / 80% Human",
+      ideal:
+        "Multilaterals, governments, city labs, or systemic ventures needing immersive development",
+      concept:
+        "Our startup is meant to transform complex systems… We want deep ethnography, high-trust partnerships, and a regenerative model.",
+      features: [
+        "Ethnographic fieldwork",
+        "Cultural storytelling",
+        "Stakeholder mapping",
+        "Full launch studio",
+        "Risk/behavioral systems design",
+      ],
+      sprints: [
+        ["Field immersion", "Stakeholder ethnographies", "Co-created roadmap"],
+        [
+          "Deep user narrative analysis",
+          "Systems modeling & pathways",
+          "Final MVP prototyping",
+        ],
+        [
+          "Legal/IP setup",
+          "Full branding & platform suite",
+          "Go-to-market activation plan",
+          "5-year roadmap & compliance",
+        ],
+      ],
+      output:
+        "Turnkey future startup ready for scale, investment, and systemic deployment",
+    },
+  };
+
+  const tierModalContent = (tier: { name: TierName } | null) => {
+    if (!tier) return null;
+
+    const t = table[tier.name];
+
+    return (
+      <div>
+        <h2 className="text-3xl font-bold text-orange-600 mb-4 text-center">
+          {tier.name}
+        </h2>
+        <div className="mb-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <div className="font-semibold text-orange-700">Tier Name:</div>
+            <div className="mb-2 text-neutral-700">{t.name}</div>
+            <div className="font-semibold text-orange-700">Duration:</div>
+            <div className="mb-2 text-neutral-700">{t.duration}</div>
+            <div className="font-semibold text-orange-700">AI/Human Ratio:</div>
+            <div className="mb-2 text-neutral-700">{t.ratio}</div>
+            <div className="font-semibold text-orange-700">Ideal For:</div>
+            <div className="mb-2 text-neutral-700">{t.ideal}</div>
+          </div>
+          <div>
+            <div className="font-semibold text-orange-700">
+              Narrative Concept:
+            </div>
+            <div className="mb-2 text-neutral-700">{t.concept}</div>
+            <div className="font-semibold text-orange-700">Key Features:</div>
+            <ul className="list-disc list-inside text-neutral-700 mb-2">
+              {t.features.map((f) => (
+                <li key={f}>{f}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        <div className="font-semibold text-orange-700 mb-2">
+          Strategic Journey Sprints:
+        </div>
+        <div className="grid md:grid-cols-3 gap-4 mb-4">
+          {t.sprints.map((sprint, i) => (
+            <div key={i} className="bg-orange-50 rounded-lg p-3">
+              <div className="font-semibold text-orange-600 mb-1">
+                Sprint {i + 1}
+              </div>
+              <ul className="list-disc list-inside text-neutral-700 text-sm">
+                {sprint.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+        <div className="font-semibold text-orange-700">Final Output:</div>
+        <div className="text-neutral-700 mb-2">{t.output}</div>
+      </div>
+    );
   };
 
   return (
@@ -381,17 +666,32 @@ const Services = () => {
                   </ul>
                 </div>
 
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className={`w-full bg-gradient-to-r ${tier.color} text-white py-4 rounded-full font-semibold hover:shadow-lg transition-all duration-200 flex items-center justify-center group`}
-                >
-                  Get Started
-                  <ArrowRight
-                    className="ml-2 group-hover:translate-x-1 transition-transform duration-200"
-                    size={16}
-                  />
-                </motion.button>
+                <div className="flex flex-row gap-4">
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className={`mt-6 w-full bg-gradient-to-r ${tier.color} text-white py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-200 flex items-center justify-center`}
+                    onClick={() => setSelectedTier(tier)}
+                  >
+                    Details
+                    <ArrowRight
+                      className="ml-2 group-hover:translate-x-1 transition-transform duration-200"
+                      size={16}
+                    />
+                  </motion.button>
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className={`mt-6 w-full bg-gradient-to-r ${tier.color} text-white py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-200 flex items-center justify-center`}
+                    // onClick={() => setSelectedTier(tier)}
+                  >
+                    To Cart
+                    <ArrowRight
+                      className="ml-2 group-hover:translate-x-1 transition-transform duration-200"
+                      size={16}
+                    />
+                  </motion.button>
+                </div>
               </motion.div>
             ))}
           </motion.div>
@@ -430,7 +730,8 @@ const Services = () => {
                 key={milestone.name}
                 variants={itemVariants}
                 whileHover={{ y: -5 }}
-                className="p-6 rounded-xl shadow-md shadow-black bg-neutral-50 hover:bg-white hover:shadow-lg transition-all duration-300 border border-neutral-100"
+                className="p-6 rounded-xl shadow-md shadow-black bg-neutral-50 hover:bg-white hover:shadow-lg transition-all duration-300 border border-neutral-100 cursor-pointer"
+                onClick={() => setSelectedMilestone(milestone.name)}
               >
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="text-lg font-semibold text-neutral-900">
@@ -497,7 +798,7 @@ const Services = () => {
             </div>
             <div className="flex justify-center">
               <a
-                href="mailto:towncryer@axumwe.com?subject=Consultation%20Request"
+                href="https://calendar.app.google/xRZETVre389BcR4b8"
                 className="w-full max-w-xl"
               >
                 <button className="w-full bg-gradient-to-r from-orange-500 to-yellow-500 hover:from-orange-600 hover:to-yellow-600 text-white font-bold text-lg py-4 rounded-xl shadow-lg transition-all duration-200">
@@ -510,7 +811,7 @@ const Services = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-primary-500 to-secondary-500">
+      {/* <section className="py-16 bg-gradient-to-r from-primary-500 to-secondary-500">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -548,7 +849,134 @@ const Services = () => {
             </div>
           </motion.div>
         </div>
-      </section>
+      </section> */}
+
+      {openEmpathizeModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
+          <div className="relative bg-white rounded-2xl shadow-2xl max-w-2xl w-full p-8 border-4 border-orange-200 animate-fade-in">
+            <button
+              onClick={() => setOpenEmpathizeModal(false)}
+              className="absolute top-3 right-4 text-neutral-400 hover:text-orange-500 text-2xl font-bold"
+              aria-label="Close"
+            >
+              ×
+            </button>
+            <h2 className="text-3xl font-bold text-orange-600 mb-6 text-center">
+              Empathize Milestone
+            </h2>
+            <div className="space-y-6">
+              <div>
+                <div className="flex font-semibold text-orange-700">
+                  <span className="w-32">Scope:</span>
+                  <span className="text-neutral-700">
+                    Data collection, discovery, user need analysis
+                  </span>
+                </div>
+                <div className="flex font-semibold text-orange-700 mt-2">
+                  <span className="w-32">Purpose:</span>
+                  <span className="text-neutral-700">
+                    To deeply understand the people, systems, and environments
+                    you’re designing for
+                  </span>
+                </div>
+              </div>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <div className="font-semibold text-orange-700 mb-2">
+                    Activities
+                  </div>
+                  <ul className="list-disc list-inside text-neutral-700 space-y-1">
+                    <li>Stakeholder interviews (1-on-1 and/or group)</li>
+                    <li>Contextual inquiry and ethnographic observation</li>
+                    <li>User personas and behavior mapping</li>
+                    <li>Pain point and aspirations discovery</li>
+                    <li>Cultural or ecological immersion (if relevant)</li>
+                  </ul>
+                </div>
+                <div>
+                  <div className="font-semibold text-orange-700 mb-2">
+                    Deliverables
+                  </div>
+                  <ul className="list-disc list-inside text-neutral-700 space-y-1">
+                    <li>Empathy Map (visual + written)</li>
+                    <li>Stakeholder Map (power, influence, interest)</li>
+                    <li>Discovery Report (key insights, quotes, themes)</li>
+                    <li>Preliminary User Journey Map</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {selectedTier && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
+          <div className="relative bg-white rounded-2xl shadow-2xl max-w-3xl w-full p-8 border-4 border-orange-200 animate-fade-in">
+            <button
+              onClick={() => setSelectedTier(null)}
+              className="absolute top-3 right-4 text-neutral-400 hover:text-orange-500 text-2xl font-bold"
+              aria-label="Close"
+            >
+              ×
+            </button>
+            {tierModalContent(selectedTier)}
+          </div>
+        </div>
+      )}
+
+      {selectedMilestone && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
+          <div className="relative bg-white rounded-2xl shadow-2xl max-w-2xl w-full p-8 border-4 border-orange-200 animate-fade-in">
+            <button
+              onClick={() => setSelectedMilestone("")}
+              className="absolute top-3 right-4 text-neutral-400 hover:text-orange-500 text-2xl font-bold"
+              aria-label="Close"
+            >
+              ×
+            </button>
+            <h2 className="text-3xl font-bold text-orange-600 mb-6 text-center">
+              {selectedMilestone}
+            </h2>
+            <div className="mb-4">
+              <div className="flex font-semibold text-orange-700 mb-2">
+                <span className="w-32">Scope:</span>
+                <span className="text-neutral-700">
+                  {milestoneDetails[selectedMilestone].scope}
+                </span>
+              </div>
+              <div className="flex font-semibold text-orange-700 mb-2">
+                <span className="w-32">Purpose:</span>
+                <span className="text-neutral-700">
+                  {milestoneDetails[selectedMilestone].purpose}
+                </span>
+              </div>
+            </div>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <div className="font-semibold text-orange-700 mb-2">
+                  Activities
+                </div>
+                <ul className="list-disc list-inside text-neutral-700 space-y-1">
+                  {milestoneDetails[selectedMilestone].activities.map((a) => (
+                    <li key={a}>{a}</li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <div className="font-semibold text-orange-700 mb-2">
+                  Deliverables
+                </div>
+                <ul className="list-disc list-inside text-neutral-700 space-y-1">
+                  {milestoneDetails[selectedMilestone].deliverables.map((d) => (
+                    <li key={d}>{d}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

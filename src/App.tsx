@@ -16,7 +16,7 @@ import ShowRoomPage from "./pages/ShowroomPages";
 function App() {
   return (
     <div className="min-h-screen bg-neutral-50">
-      <Header />
+      {/* <Header /> */}
       <main>
         {/* Hero Section */}
         <section id="home">

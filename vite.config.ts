@@ -7,4 +7,5 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
+  //  base: "/wp-content/uploads/react-app/", // <-- match your deployment folder
 });

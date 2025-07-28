@@ -1,4 +1,5 @@
 import React from "react";
+import ReactDOM from "react-dom";
 import { Calendar, Clock, MapPin, Users, ExternalLink } from "lucide-react";
 
 interface Event {
@@ -21,6 +22,7 @@ interface EventCardProps {
 }
 
 const EventCard: React.FC<EventCardProps> = ({ event, index }) => {
+  const [open, setOpen] = React.useState(false);
   return (
     <div
       className={`group relative overflow-hidden rounded-2xl backdrop-blur-lg bg-white/80 border  border-orange-200/30 hover:bg-white/90 transition-all duration-500 hover:scale-[1.02] shadow-md shadow-black hover:shadow-orange-500/30 hover:shadow-3xl ${
@@ -89,12 +91,92 @@ const EventCard: React.FC<EventCardProps> = ({ event, index }) => {
             )}
           </div>
 
-          <button className="flex items-center space-x-1 text-orange-500 hover:text-orange-700 transition-colors group/btn">
+          <button
+            className="flex items-center space-x-1 text-orange-500 hover:text-orange-700 transition-colors group/btn"
+            onClick={(e) => {
+              e.stopPropagation();
+              setOpen(true);
+            }}
+          >
             <span className="text-xs font-medium">Learn More</span>
             <ExternalLink className="w-3 h-3 group-hover/btn:translate-x-0.5 transition-transform" />
           </button>
         </div>
       </div>
+
+      {open &&
+        ReactDOM.createPortal(
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm">
+            <div className="relative bg-white rounded-2xl shadow-2xl max-w-3xl w-full p-12 border-4 border-orange-200 animate-fade-in">
+              <button
+                onClick={() => setOpen(false)}
+                className="absolute top-3 right-4 text-neutral-400 hover:text-orange-500 text-2xl font-bold"
+                aria-label="Close"
+              >
+                ×
+              </button>
+              <h2 className="text-3xl font-bold text-orange-600 mb-2 text-center">
+                {event.title}
+              </h2>
+              <div className="mb-2 text-center text-orange-700 font-semibold">
+                {event.subtitle}
+              </div>
+              <div className="flex flex-wrap justify-center gap-6 mb-6 text-base">
+                <div className="flex flex-col items-center">
+                  <span className="text-xs text-gray-500">Date</span>
+                  <span className="font-medium text-gray-800">
+                    {event.date}
+                  </span>
+                </div>
+                <div className="flex flex-col items-center">
+                  <span className="text-xs text-gray-500">Time</span>
+                  <span className="font-medium text-gray-800">
+                    {event.time}
+                  </span>
+                </div>
+                <div className="flex flex-col items-center">
+                  <span className="text-xs text-gray-500">Location</span>
+                  <span className="font-medium text-gray-800">
+                    {event.location}
+                  </span>
+                </div>
+                {event.attendees && (
+                  <div className="flex flex-col items-center">
+                    <span className="text-xs text-gray-500">Attending</span>
+                    <span className="font-medium text-gray-800">
+                      {event.attendees}+
+                    </span>
+                  </div>
+                )}
+              </div>
+              <div className="mb-2 text-base">
+                <span className="font-semibold text-orange-700">Theme:</span>{" "}
+                {event.subtitle}
+              </div>
+              <div className="mb-2 text-base">
+                <span className="font-semibold text-orange-700">Type:</span>{" "}
+                {event.category}
+              </div>
+              <div className="mb-4 text-base">
+                <span className="font-semibold text-orange-700">
+                  Description:
+                </span>
+                <div className="text-neutral-700 mt-1 whitespace-pre-line">
+                  {event.description}
+                </div>
+              </div>
+              <div className="flex justify-end">
+                <button
+                  className="px-6 py-3 rounded-full bg-orange-600 text-white text-base font-semibold hover:bg-orange-500 transition-colors"
+                  onClick={() => setOpen(false)}
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>,
+          document.body
+        )}
     </div>
   );
 };
